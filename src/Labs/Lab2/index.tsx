@@ -412,7 +412,8 @@ export default function Lab2() {
             Example textarea</label>
           <textarea className="form-control" id="textarea1"
             rows={3}></textarea>
-        </div></div>
+        </div>
+      </div>
 
       <div id="wd-css-styling-dropdowns">
         <h3>Dropdowns</h3>
