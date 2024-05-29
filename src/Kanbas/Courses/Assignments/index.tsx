@@ -3,6 +3,7 @@ import { BsGripVertical, BsPlusLg } from "react-icons/bs";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoEllipsisVertical } from "react-icons/io5";
 import { PiNotepadThin } from "react-icons/pi";
+import GreenCheckmark from "../Modules/GreenCheckmark";
 export default function Assignments() {
   return (
     <div id="wd-assignments">
@@ -29,6 +30,10 @@ export default function Assignments() {
                 <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am | <b>Due</b> May 13 at 11:59pm | 100pts
               </p>
             </div>
+            <div className="ms-auto">
+              <GreenCheckmark />
+              <IoEllipsisVertical className="fs-4" />
+            </div>
           </li>
 
           <li className="wd-assignment-item list-group-item d-flex align-items-center p-3 ps-1">
@@ -42,6 +47,10 @@ export default function Assignments() {
               <p className="mb-0 text-muted">
                 <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> May 13 at 12:00am | <b>Due</b> May 20 at 11:59pm | 100pts
               </p>
+            </div>
+            <div className="ms-auto">
+              <GreenCheckmark />
+              <IoEllipsisVertical className="fs-4" />
             </div>
           </li>
 
@@ -57,8 +66,11 @@ export default function Assignments() {
                 <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> May 20 at 12:00am | <b>Due</b> May 27 at 11:59pm | 100pts
               </p>
             </div>
+            <div className="ms-auto">
+              <GreenCheckmark />
+              <IoEllipsisVertical className="fs-4" />
+            </div>
           </li>
-
         </ul>
       </li>
     </div>
