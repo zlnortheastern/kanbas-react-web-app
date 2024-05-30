@@ -84,7 +84,7 @@ export default function Dashboard() {
                   CS4444 NodeJS
                 </a>
                 <p className="wd-dashboard-course-title card-text">
-                  JavaSctipt framework development
+                  JavaScript framework development
                 </p>
                 <a href="#/Kanbas/Courses/Home" className="btn btn-primary"> Go </a>
               </div>
