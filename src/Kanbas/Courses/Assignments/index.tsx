@@ -14,7 +14,7 @@ export default function Assignments() {
           <IoMdArrowDropdown className="me-2" />
           <span className="fw-bold">ASSIGNMENTS</span>
           <IoEllipsisVertical className="fs-4 float-end mt-1" />
-          <BsPlusLg className="float-end fs-4 me-3 mt-1" />
+          <BsPlusLg className="float-end fs-4 me-3 mt-1 ms-1" />
           <div className="border float-end rounded-5 border-dark px-2">40% of Total </div>
         </div>
         <ul id="wd-assignment-list" className="wd-assignment-list list-group rounded-0">

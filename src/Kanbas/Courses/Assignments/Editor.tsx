@@ -118,7 +118,6 @@ export default function AssignmentEditor() {
               </div>
               <div className="col-sm-6">
                 <label htmlFor="wd-available-until" className="form-label fw-bold">Until</label>
-                <br />
                 <input type="datetime-local" id="wd-available-until" className="form-control" value="2024-05-20T23:59" />
               </div>
             </div>
