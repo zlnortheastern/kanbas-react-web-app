@@ -1,9 +1,15 @@
+import { useParams } from "react-router";
+import * as db from "../../Database";
+import { Link } from "react-router-dom";
 export default function AssignmentEditor() {
+  const { cid, aid } = useParams();
+  const assignments = db.assignments;
+  const assignment = assignments.find(a => a._id === aid);
   return (
     <div id="wd-assignments-editor">
       <div className="mb-3">
         <label htmlFor="wd-name" className="form-label">Assignment Name</label>
-        <input type="text" className="form-control" id="wd-name" value="A1 - ENV + HTML" />
+        <input type="text" className="form-control" id="wd-name" value={assignment && assignment.title} />
       </div>
       <div className="mb-3">
         <textarea className="form-control" id="wd-description" rows={5}>
@@ -127,14 +133,18 @@ export default function AssignmentEditor() {
 
       <hr />
       <div id="wd-modules-controls" className="text-nowrap">
-        <button id="wd-assignments-editor-save" className="btn btn-lg btn-danger me-1 float-end">
+        <Link to={`/Kanbas/Courses/${cid}/Assignments`}
+          id="wd-assignments-editor-save"
+          className="btn btn-lg btn-danger me-1 float-end">
           Save
-        </button>
-        <button id="wd-assignments-editor-cancel" className="btn btn-lg btn-secondary me-1 float-end">
+        </Link>
+        <Link to={`/Kanbas/Courses/${cid}/Assignments`}
+          id="wd-assignments-editor-cancel"
+          className="btn btn-lg btn-secondary me-1 float-end">
           Cancel
-        </button>
+        </Link>
       </div>
-      
+
     </div>
   );
 }
