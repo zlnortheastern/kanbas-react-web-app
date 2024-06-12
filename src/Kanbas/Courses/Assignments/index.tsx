@@ -10,6 +10,25 @@ import { Link } from "react-router-dom";
 export default function Assignments() {
   const { cid } = useParams();
   const assignments = db.assignments;
+  const formatDate = (dateString:string) => {
+    const date = new Date(dateString);
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const month = monthNames[date.getMonth()];
+    const day = date.getDate();
+
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    const minutesStr = minutes < 10 ? '0' + minutes : minutes;
+
+    return `${month} ${day} at ${hours}:${minutesStr}${ampm}`;
+  }
   return (
     <div id="wd-assignments">
       <AssignmentsControls /><br /><br /><br /><br />
@@ -33,7 +52,7 @@ export default function Assignments() {
                   {assignment.title}
                 </Link>
                 <p className="mb-0 text-muted">
-                  <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am | <b>Due</b> May 13 at 11:59pm | 100pts
+                  <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> {formatDate(assignment.assign.availableFrom)} | <b>Due</b> {formatDate(assignment.assign.due)} | {assignment.points}
                 </p>
               </div>
               <div className="ms-auto">

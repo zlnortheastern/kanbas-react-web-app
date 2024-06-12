@@ -14,7 +14,7 @@ export default function Grades() {
   return (
     <div id="wd-grades">
       <GradesControls />
-      <div style={{ maxWidth: "850px" }}>
+      <div>
         <div className="table-responsive">
           <table id="wd-grade-table" className="table table-striped table-bordered align-middle fs-5 text-nowrap">
             <tbody className="text-center">
@@ -23,7 +23,7 @@ export default function Grades() {
                 {assignments.map(assignment => (
                   <td>
                     {assignment.title}
-                    <div className="fs-6">Out of 100</div>
+                    <div className="fs-6">Out of {assignment.points}</div>
                   </td>
                 ))}
               </tr>

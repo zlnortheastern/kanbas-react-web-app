@@ -13,18 +13,7 @@ export default function AssignmentEditor() {
       </div>
       <div className="mb-3">
         <textarea className="form-control" id="wd-description" rows={5}>
-          The assignment is available online
-          Submit a link to the landing page
-          of your Web application running on
-          Netlify. The landing page should
-          include the following: Your full
-          name and section Links to each of
-          the lab assignments Link to the
-          Knabas application Links to all
-          relevant source code repositories.
-          The Kanbas application should
-          include a link to navigate back
-          to the landing page.
+          {assignment && assignment.description}
         </textarea>
       </div>
 
@@ -35,7 +24,7 @@ export default function AssignmentEditor() {
         </label>
         <div className="col-sm-10">
           <input type="number" className="form-control"
-            id="wd-points" value="100" />
+            id="wd-points" value={assignment && assignment.points} />
         </div>
       </div>
 
@@ -112,19 +101,19 @@ export default function AssignmentEditor() {
         <div className="col-sm-10">
           <div className="border rounded-2 p-3">
             <label htmlFor="wd-assign-to" className="fw-bold">Assign to</label>
-            <input id="wd-assign-to" className="form-control" value="Everyone" />
+            <input id="wd-assign-to" className="form-control" value={assignment && assignment.assign.assignTo} />
             <div className="my-3">
               <label htmlFor="wd-due-date" className="form-label fw-bold">Due</label>
-              <input type="datetime-local" id="wd-due-date" className="form-control" value="2024-05-13T23:59" />
+              <input type="datetime-local" id="wd-due-date" className="form-control" value={assignment && assignment.assign.due} />
             </div>
             <div className="row my-2 my-3">
               <div className="col-sm-6">
                 <label htmlFor="wd-available-from" className="form-label fw-bold">Available from</label>
-                <input type="datetime-local" id="wd-available-from" className="form-control" value="2024-05-06T23:59" />
+                <input type="datetime-local" id="wd-available-from" className="form-control" value={assignment && assignment.assign.availableFrom} />
               </div>
               <div className="col-sm-6">
                 <label htmlFor="wd-available-until" className="form-label fw-bold">Until</label>
-                <input type="datetime-local" id="wd-available-until" className="form-control" value="2024-05-20T23:59" />
+                <input type="datetime-local" id="wd-available-until" className="form-control" value={assignment && assignment.assign.until} />
               </div>
             </div>
           </div>
