@@ -8,6 +8,11 @@ import ObjectStateVariable from "./ObjectStateVariable";
 import ParentStateComponent from "./ParentStateComponent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
+import ReduxExamples from "./ReduxExamples";
+import AddRedux from "./ReduxExamples/AddRedux";
+import CounterRedux from "./ReduxExamples/CounterRedux";
+import HelloRedux from "./ReduxExamples/HelloRedux";
+import TodoList from "./ReduxExamples/todos/TodoList";
 import StringStateVariables from "./StringStateVariables";
 
 export default function Lab4() {
@@ -28,6 +33,11 @@ export default function Lab4() {
       <ObjectStateVariable />
       <ArrayStateVariable />
       <ParentStateComponent />
+      <ReduxExamples />
+      <HelloRedux />
+      <CounterRedux />
+      <AddRedux />
+      <TodoList />
     </div>
   )
 }
