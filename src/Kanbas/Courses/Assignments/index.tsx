@@ -7,9 +7,14 @@ import GreenCheckmark from "../Modules/GreenCheckmark";
 import { useParams } from "react-router";
 import * as db from "../../Database";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { FaTrash } from "react-icons/fa";
+import { deleteAssignment } from "./reducer";
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments;
+  const {assignments} = useSelector((state: any) => state.assignmentsReducer);
+  const dispatch = useDispatch();
+
   const formatDate = (dateString:string) => {
     const date = new Date(dateString);
     const monthNames = [
@@ -29,6 +34,7 @@ export default function Assignments() {
 
     return `${month} ${day} at ${hours}:${minutesStr}${ampm}`;
   }
+
   return (
     <div id="wd-assignments">
       <AssignmentsControls /><br /><br /><br /><br />
@@ -42,20 +48,21 @@ export default function Assignments() {
           <div className="border float-end rounded-5 border-dark px-2">40% of Total </div>
         </div>
         <ul id="wd-assignment-list" className="wd-assignment-list list-group rounded-0">
-          {assignments.filter((a) => a.course === cid).map((assignment) => (
+          {assignments.filter((a:any) => a.course === cid).map((a:any) => (
             <li className="wd-assignment-item list-group-item d-flex align-items-center p-3 ps-1">
               <BsGripVertical className="me-2 fs-3 " />
               <PiNotepadThin className="me-4 fs-3 text-success" />
               <div>
-                <Link to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                <Link to={`/Kanbas/Courses/${cid}/Assignments/${a._id}`}
                   className="wd-assignment-link fs-5 fw-bold text-decoration-none text-dark">
-                  {assignment.title}
+                  {a.title}
                 </Link>
                 <p className="mb-0 text-muted">
-                  <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> {formatDate(assignment.assign.availableFrom)} | <b>Due</b> {formatDate(assignment.assign.due)} | {assignment.points}
+                  <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> {formatDate(a.assign.availableFrom)} | <b>Due</b> {formatDate(a.assign.due)} | {a.points}
                 </p>
               </div>
               <div className="ms-auto">
+                <FaTrash className="text-danger me-2 mb-1" onClick={() => dispatch(deleteAssignment(a._id))}/>
                 <GreenCheckmark />
                 <IoEllipsisVertical className="fs-4" />
               </div>
